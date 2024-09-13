@@ -1,4 +1,9 @@
 package ex2;
 
-public enum TypeCOmpte {
+/**
+ * Enumération des types de compte.
+ */
+public enum TypeCompte {
+    COURANT,
+    LIVRET_A
 }
