@@ -7,52 +7,43 @@ public class Caisse {
 
     private String nom;
     private List<Item> items;
+    private int poidsMax;
 
     /**
      * Constructeur
      *
-     * @param nom
+     * @param nom      le nom de la caisse
+     * @param poidsMax le poids maximum que la caisse peut accepter
      */
-    public Caisse(String nom) {
-        super();
+    public Caisse(String nom, int poidsMax) {
         this.nom = nom;
+        this.poidsMax = poidsMax;
         this.items = new ArrayList<>();
     }
 
     /**
-     * Getter pour l'attribut nom
+     * Vérifie si l'item peut être ajouté à cette caisse.
      *
-     * @return the nom
+     * @param item l'item à vérifier
+     * @return true si l'item peut être ajouté, false sinon
      */
+    public boolean peutAccepter(Item item) {
+        return item.getPoids() <= poidsMax;
+    }
+
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Setter pour l'attribut nom
-     *
-     * @param nom the nom to set
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * Getter pour l'attribut items
-     *
-     * @return the items
-     */
     public List<Item> getItems() {
         return items;
     }
 
-    /**
-     * Setter pour l'attribut items
-     *
-     * @param items the items to set
-     */
     public void setItems(List<Item> items) {
         this.items = items;
     }
-
 }
