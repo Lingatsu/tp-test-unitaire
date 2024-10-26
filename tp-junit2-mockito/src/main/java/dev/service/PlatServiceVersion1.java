@@ -15,9 +15,18 @@ public class PlatServiceVersion1 implements IPlatService {
     }
 
     @Override
+    // modification de la méthode pour les majuscules
     public List<Plat> listerPlats() {
-        return dao.listerPlats();
+        List<Plat> plats = dao.listerPlats();
+        if (plats == null) {
+            throw new PlatException("Une erreur est survenue lors de la récupération des plats", new NullPointerException());
+        }
+        return plats.stream()
+                .map(plat -> new Plat(plat.getNom().toUpperCase(), plat.getPrixEnCentimesEuros()))
+                .toList();
     }
+
+
 
     @Override
     public void ajouterPlat(String nomPlat, Integer prixPlat) {
