@@ -21,18 +21,16 @@ public class PlatServiceVersion2 implements IPlatService {
 
     @Override
     public void ajouterPlat(String nomPlat, Integer prixPlat) {
-
         // règle métier
-
         if (nomPlat.length() <= 5) {
             throw new PlatException("un plat doit avoir un nom de plus de 5 caractères");
         }
-
         if (prixPlat <= 1000) {
             throw new PlatException("le prix d'un plat doit être supérieur à 10 €");
         }
 
         // persistance uniquement si les règles métiers sont respectées
-        dao.ajouterPlat(nomPlat, prixPlat);
+        dao.ajouterPlat(nomPlat, prixPlat * 2); // Multipliez le prix par 2 ici
     }
+
 }
