@@ -15,6 +15,7 @@
   <jupiter.version>5.7.0</jupiter.version>
         <junit-platform.version>1.6.3</junit-platform.version>
         <hamcrest.version>2.2</hamcrest.version>
+        <assertj.version>3.18.1</assertj.version>
     </properties>
 
    
@@ -54,6 +55,13 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
             <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
